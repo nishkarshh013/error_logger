@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  error_group: one
+  backtrace: MyText
+  occurred_at: 2025-05-18 04:13:36
+
+two:
+  error_group: two
+  backtrace: MyText
+  occurred_at: 2025-05-18 04:13:36

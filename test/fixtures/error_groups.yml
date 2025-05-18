@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  app: one
+  error_class: MyString
+  message: MyText
+  environment: MyString
+  fingerprint: MyString
+  count: 1
+
+two:
+  app: two
+  error_class: MyString
+  message: MyText
+  environment: MyString
+  fingerprint: MyString
+  count: 1
