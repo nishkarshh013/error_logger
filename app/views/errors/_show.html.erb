@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "error_panel" do %>
+  <h2><%= error_group.error_class %></h2>
+  <p><strong>Message:</strong> <%= error_group.message %></p>
+  <p><strong>Environment:</strong> <%= error_group.environment %></p>
+  <%= link_to "Back to List", dashboard_index_path, data: { turbo_frame: "error_panel" } %>
+<% end %>

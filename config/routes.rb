@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'errors/index'
   get 'dashboard/index'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -8,9 +9,16 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "dashboard#index"
+  # root "dashboard#index"
+  root "apps#index"
 
   namespace :api do 
     post 'errors', to: 'errors#create'
+  end
+
+  resources :apps, only: [:index, :show]
+
+  resources :errors, only: [:show] do
+    resources :error_occurrences, only: [:show]
   end
 end

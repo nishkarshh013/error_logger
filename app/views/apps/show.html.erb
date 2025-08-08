@@ -1,0 +1,7 @@
+<h1><%= @app.name %> - Error Groups</h1>
+
+<div class="error-groups">
+  <%= turbo_frame_tag "app_#{@app.id}" do %>
+    <%= render partial: "errors/list", locals: { error_groups: @error_groups } %>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<h1>Your Projects</h1>
+
+<div class="app-cards">
+  <% @apps.each do |app| %>
+    <%= turbo_frame_tag "app_#{app.id}" do %>
+      <%= link_to app_path(app), class: "app-card" do %>
+        <div class="app-card-body">
+          <h2><%= app.name %></h2>
+          <p><%= truncate(app.api_key, length: 20) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
