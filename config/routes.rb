@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post 'errors', to: 'errors#create'
   end
 
-  resources :apps, only: [:index, :show]
+  resources :apps
 
   resources :errors, only: [:show] do
     resources :error_occurrences, only: [:show]

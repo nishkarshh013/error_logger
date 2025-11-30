@@ -1,0 +1,38 @@
+<div class="form-container">
+
+  <div class="projects-header">
+    <h1>Create Application</h1>
+    <%= link_to "Back", apps_path, class: "create-project-btn" %>
+  </div>
+
+  <%= form_with(model: @app, local: true, class: "space-y-6 app-form") do |form| %>
+
+    <% if form.object.errors.any? %>
+      <div class="form-error-box">
+        <p>The form has <%= form.object.errors.count %> error(s):</p>
+        <ul>
+          <% form.object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- Application Name Field -->
+    <div>
+      <%= form.label :name, "Application Name", class: "form-label" %>
+      <%= form.text_field :name,
+          placeholder: "e.g., 'Error Logger Service'",
+          required: true,
+          class: "form-input"
+      %>
+    </div>
+
+    <!-- Submit Button -->
+    <%= form.submit "Register Application",
+        class: "submit-btn"
+    %>
+
+  <% end %>
+
+</div>

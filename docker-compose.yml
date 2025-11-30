@@ -1,0 +1,29 @@
+# version: "3.9"
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    # volumes:
+    #   - .:/app
+    # depends_on:
+    #   - db
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/error_logger_development
+      SECRET_KEY_BASE: ed731e5e7bad218853d89ac5ebcfdedbc3da9b9af645eda457f5812024fd03271ff42a4f68cdcc5311771f987fcd1e47bdaa9384c0aa2ed5fdf5883baa564d80
+      RAILS_ENV: production
+
+    command: bash -c "bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0 -p 3000"
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: error_logger_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

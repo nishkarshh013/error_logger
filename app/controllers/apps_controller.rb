@@ -11,4 +11,18 @@ class AppsController < ApplicationController
 		@app = current_user.apps.find(params[:id])
   	@error_groups = @app.error_groups.order(created_at: :desc)
 	end
+
+	def new
+		@app = App.new
+	end
+
+	def create
+		@app = current_user.apps.create!(app_params)
+	end
+
+	private
+
+	def app_params
+		params.require(:app).permit(:name)
+	end
 end
