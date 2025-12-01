@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: error_logger_web
+    env_file:
+      - .env.production
+    ports:
+      - "3000:3000"   # Rails runs inside container
+    command: bundle exec puma -C config/puma.rb
+    restart: always
