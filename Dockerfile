@@ -5,7 +5,7 @@ ARG RUBY_VERSION=3.2.2
 FROM ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
-WORKDIR /app
+WORKDIR /error_logger
 
 # Set production environment
 ENV RAILS_ENV="production" \
